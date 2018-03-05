@@ -1,10 +1,6 @@
-﻿## Dignity Health - Curbside API
+﻿## Dignity Health - Media API
 
-Curbside Product provides patient case submision and review features to ouside and inhouse Doctors as Providers.Administrative users to manage access and previlage to submit and review patientcase from Curbside mobile Apps.Submitter app allows to submit patient case along with images,which will be reviewed by the Dignity inshouse doctors through the reviewer app and submitter will be notified once the patient case is reviewed. 
-
-Curbside API is the restful API suite serves the mobile apps and web portal. Core domain would be driven by the apis thus making the Apps light weight.  
-
-
+Media API is the restful API suite serves the mobile apps and web portal. Which acts as mediator between Barrow media and Simplify, Curbside applications. Core domain would be driven by the apis thus making the Apps light weight.  
 
 ### Getting Started
 
@@ -29,15 +25,11 @@ confirms that the project is setup successfully.
 **Note:-** If your network is not able to access DignityHealth network please register your IP
 in Azure portal Local Network Gateways.
 
-
-
 ##### 2. Dependencies
 
- 1. CIAM API - Identity Management System 
- 2. Sendgrid Emailing API - Email integration
- 3. Azure Blob Storage - Image storage for helpdesk tickets and user profile pictures
- 4. KeyVault - Storing connection strings in a secured manner.
- 5. Application Insights - Logging app errors.
+ 1. KeyVault - Storing connection strings in a secured manner.
+ 2. Application Insights - Logging app errors.
+ 3. Barrow Media
 
 ##### 3. Latest releases
 
@@ -47,7 +39,7 @@ in Azure portal Local Network Gateways.
 
 ##### 4. API references
 
-http://web-usw1-curbsideapi-slot2-tst.ase-usw1-shared-ppe.p.azurewebsites.net
+**YTD
 
 ### Build and Test
 
