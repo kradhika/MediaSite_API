@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DH.Media.API</name>
+    </assembly>
+    <members>
+        <member name="T:DH.Media.API.AiHandleErrorAttribute">
+            <summary>
+            AiHandleErrorAttribute Class
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.AiHandleErrorAttribute.OnException(System.Web.Mvc.ExceptionContext)">
+            <summary>
+            Provides Exception on AiHandle
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="T:DH.Media.API.SwaggerConfig">
+            <summary>
+            Swagger Configuration
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.SwaggerConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Register Method
+            </summary>
+        </member>
+        <member name="T:DH.Media.API.Controllers.BaseController">
+            <summary>
+            Base class for all the controllers
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.Controllers.BaseController.BuildResponse``1(``0)">
+            <summary>
+            Returns success response
+            </summary>
+            <param name="resultValue">Result</param>
+            <returns>HttpResponseMessage object</returns>
+        </member>
+        <member name="T:DH.Media.API.Controllers.MediaController">
+            <summary>
+            Manage all media operations
+            </summary>  
+        </member>
+        <member name="M:DH.Media.API.Controllers.MediaController.#ctor(DH.Media.Core.Application.V1.Media.IMediaApplication)">
+            <summary>
+            Constructor for MediaController
+            </summary>
+            <param name="mediaApplication">WhitelistApplication Interface</param>
+        </member>
+        <member name="M:DH.Media.API.Controllers.MediaController.GetMediaVideos(System.String,DH.Media.Core.Enterprise.Common.Models.SortAndPaginationQueryModel,System.String)">
+            <summary>
+            Get list of Media Videos
+            </summary>
+            <param name="tenantId"></param>
+            <param name="sortAndPaginationQueryModel"></param>
+            <param name="search"></param>
+            <returns>MediaResponse Object</returns>
+        </member>
+        <member name="M:DH.Media.API.Controllers.MediaController.GetMediaAuthTicket(System.String)">
+            <summary>
+            Get Media Auth Ticket
+            </summary>
+            <param name="tenantId">Tenant Id</param>               
+            <returns></returns>
+        </member>
+        <member name="M:DH.Media.API.Controllers.MediaController.GetMediaPresentation(System.String)">
+            <summary>
+            Get Media object for Presentation Id
+            </summary>
+            <param name="presentationId">Presentation Id</param>        
+            <returns>MediaPresentationResponse Object</returns>
+        </member>
+        <member name="T:DH.Media.API.FilterConfig">
+            <summary>
+            Handles global filters
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)">
+            <summary>
+            Registers global filters
+            </summary>
+            <param name="filters">GlobalFilterCollection</param>
+        </member>
+        <member name="T:DH.Media.API.RouteConfig">
+            <summary>
+            Handles routing configurations
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.RouteConfig.RegisterRoutes(System.Web.Routing.RouteCollection)">
+            <summary>
+            creates routing configuration
+            </summary>
+            <param name="routes"></param>
+        </member>
+        <member name="T:DH.Media.API.WebApiConfig">
+            <summary>
+            Handles WebAPI routing
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Initializes WebAPI routing
+            </summary>
+            <param name="config">HttpConfiguration object</param>
+        </member>
+        <member name="T:DH.Media.API.Infrastructure.Auth.AuthJwtFormat">
+            <summary>
+            Media Custom Jwt Token Validation Format Implementor
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Auth.AuthJwtFormat.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.List{System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}},System.Collections.Generic.IEnumerable{DH.Media.API.Infrastructure.Auth.OpenIdConnectCachingSecurityTokenProvider})">
+            <summary>
+            Validation Token Format
+            </summary>
+            <param name="audiences">TokenValidationParameters Object</param>
+            <param name="additionalTokenValidationParamters">ReadOnlyDictionary Interface</param>
+            <param name="securityTokenProvider">OpenIdConnectCachingSecurityTokenProvider Object</param>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Auth.AuthJwtFormat.Unprotect(System.String)">
+            <summary>
+            Validate the JWT Token and generate the Auth ticket
+            </summary>
+            <param name="protectedText">Protected Text</param>
+            <returns></returns>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Auth.AuthJwtFormat.ThrowIfValidationFails(Microsoft.Owin.Security.AuthenticationTicket,System.Collections.Generic.IEnumerable{System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}})">
+            <summary>
+            Throws parameters mismatch exception
+            </summary>
+            <param name="ticket">AuthenticationTicket Object</param>
+            <param name="customParameters">ReadOnlyDictionary Interface</param>
+        </member>
+        <member name="T:DH.Media.API.Infrastructure.Auth.OidcGroupAuthorizeAttribute">
+            <summary>
+            Authorize Attribute that verifies user groups before action gets executed
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Auth.OidcGroupAuthorizeAttribute.IsAuthorized(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Verifies request is authorized
+            </summary>
+            <param name="actionContext">HttpActionContext Object</param>
+            <returns></returns>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Auth.OidcGroupAuthorizeAttribute.HandleUnauthorizedRequest(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Handles request with unauthorized context
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:DH.Media.API.Infrastructure.Auth.OpenIdConnectCachingSecurityTokenProvider">
+            <summary>
+            This class is necessary because the OAuthBearer Middle ware does not leverage
+            the OpenID Connect metadata endpoint exposed by the STS by default.
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Auth.OpenIdConnectCachingSecurityTokenProvider.#ctor(System.String)">
+            <summary>
+            Creates the instance of OpenIdConnectCachingSecurityTokenProvider
+            </summary>
+            <param name="metadataEndpoint"></param>
+        </member>
+        <member name="P:DH.Media.API.Infrastructure.Auth.OpenIdConnectCachingSecurityTokenProvider.Issuer">
+            <summary>
+            Gets the issuer the credentials are for.
+            </summary>
+            <value>
+            The issuer the credentials are for.
+            </value>
+        </member>
+        <member name="P:DH.Media.API.Infrastructure.Auth.OpenIdConnectCachingSecurityTokenProvider.SecurityTokens">
+            <summary>
+            Gets all known security tokens.
+            </summary>
+            <value>
+            All known security tokens.
+            </value>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Auth.OpenIdConnectCachingSecurityTokenProvider.RetrieveMetadata">
+            <summary>
+            Retrieves the metadata
+            </summary>
+        </member>
+        <member name="T:DH.Media.API.Infrastructure.Filters.HandleApiExceptionFilterAttribute">
+            <summary>
+             Handles all exceptions
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Filters.HandleApiExceptionFilterAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            Process all Exceptions in current context
+            </summary>
+            <param name="actionExecutedContext">HttpActionExecutedContext Object</param>
+        </member>
+        <member name="T:DH.Media.API.Infrastructure.Filters.ValidationActionFilterAttribute">
+            <summary>
+            Handles all request validation
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Filters.ValidationActionFilterAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Process all request validation in current context
+            </summary>
+            <param name="actionContext">HttpActionContext object</param>
+        </member>
+        <member name="T:DH.Media.API.Infrastructure.Handlers.MediaExceptionLogger">
+            <summary>
+            Media Exception Logger Class
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Handlers.MediaExceptionLogger.LogAsync(System.Web.Http.ExceptionHandling.ExceptionLoggerContext,System.Threading.CancellationToken)">
+            <summary>
+            Logs Async
+            </summary>
+            <param name="context">ExceptionHandlerContext Object</param>
+            <param name="cancellationToken">CancellationToken Object</param>
+            <returns></returns>
+        </member>
+        <member name="T:DH.Media.API.Infrastructure.Handlers.RequiredHeaderParameter">
+            <summary>
+            Required Header Parameter
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Handlers.RequiredHeaderParameter.Apply(Swashbuckle.Swagger.Operation,Swashbuckle.Swagger.SchemaRegistry,System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Applying Header parameters to Swagger UI
+            </summary>
+            <param name="operation">Operation Object</param>
+            <param name="schemaRegistry">SchemaRegistry Object</param>
+            <param name="apiDescription">ApiDescription Object</param>
+        </member>
+        <member name="T:DH.Media.API.Infrastructure.Handlers.UnhandledExceptionHandler">
+            <summary>
+            Handles all unhandled exceptions
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.Infrastructure.Handlers.UnhandledExceptionHandler.HandleAsync(System.Web.Http.ExceptionHandling.ExceptionHandlerContext,System.Threading.CancellationToken)">
+            <summary>
+            Handles Async
+            </summary>
+            <param name="context">ExceptionHandlerContext Object</param>
+            <param name="cancellationToken">CancellationToken Object</param>
+            <returns></returns>
+        </member>
+        <member name="T:DH.Media.API.Startup">
+            <summary>
+            Startup Class
+            </summary>
+        </member>
+        <member name="M:DH.Media.API.Startup.Configuration(Owin.IAppBuilder)">
+            <summary>
+            Configuration
+            </summary>
+            <param name="app">AppBuilder Interface</param>
+        </member>
+        <member name="M:DH.Media.API.Startup.ConfigureAuth(Owin.IAppBuilder)">
+            <summary>
+            Configure Auth to trust the access token
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:DH.Media.API.Startup.DiConfiguration(System.Web.Http.HttpConfiguration)">
+            <summary>
+            DI Configuration
+            </summary>
+            <param name="config">HttpConfiguration Object</param>
+        </member>
+    </members>
+</doc>

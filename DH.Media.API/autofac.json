@@ -1,0 +1,22 @@
+﻿{
+  "defaultAssembly": "DH.Media.Core.Application",
+  "components": [
+    {
+      "type": "DH.Media.Core.Application.V1.Media.MediaApplication, DH.Media.Core.Application",
+      "services": [
+        {
+          "type": "DH.Media.Core.Application.V1.Media.IMediaApplication"
+        }
+      ],
+      "injectProperties": true
+    },
+    {
+      "type": "DH.Media.Infrastructure.Media.MediaContext, DH.Media.Infrastructure.Media",
+      "services": [
+        {
+          "type": "DH.Media.Core.Integration.Media.IMediaContext, DH.Media.Core.Integration"
+        }
+      ]
+    }    
+  ]
+}
